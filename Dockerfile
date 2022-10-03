@@ -19,14 +19,14 @@ RUN curl -L https://github.com/aktau/github-release/releases/download/v0.6.2/lin
 RUN which repo && \
     which github-release
 
-COPY build.sh ~/
-RUN chmod +x ~/build.sh
+COPY build.sh /root/
+RUN chmod +x /root/build.sh
 
-COPY init-repo-android7.sh ~/
-RUN chmod +x ~/init-repo-android7.sh
+COPY init-repo-android7.sh /root/
+RUN chmod +x /root/init-repo-android7.sh
 
-COPY fixedDefaultManifestsAndroid7.xml ~/
+COPY fixedDefaultManifestsAndroid7.xml /root/
 
-COPY fixedLibcedarcConfig.mk ~/
+COPY fixedLibcedarcConfig.mk /root/
 
-COPY Jenkinsfile ~/
+COPY Jenkinsfile /root/
