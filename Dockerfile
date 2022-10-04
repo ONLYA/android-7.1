@@ -8,10 +8,10 @@ RUN apt-get update -y && \
     htop iotop sysstat iftop pigz bc device-tree-compiler lunzip \
     dosfstools
 
-RUN add-apt-repository universe && apt update && \
-    apt install python3.9
+RUN add-apt-repository universe -y && apt-get update -y && \
+    apt-get install -y python3.8
 
-RUN ln -s /usr/bin/python3.9 /usr/local/bin/python
+RUN ln -s /usr/bin/python3.8 /usr/local/bin/python
 
 RUN curl https://storage.googleapis.com/git-repo-downloads/repo > /usr/local/bin/repo && \
     chmod +x /usr/local/bin/repo
