@@ -1,5 +1,7 @@
 FROM ubuntu:18.04
 
+RUN apt-get update -y && apt-get install -y --no-install-recommends apt-utils
+
 RUN apt-get update -y && \
     apt-get install -y openjdk-8-jdk software-properties-common git-core gnupg flex bison gperf build-essential \
     zip curl zlib1g-dev gcc-multilib g++-multilib libc6-dev-i386 \
