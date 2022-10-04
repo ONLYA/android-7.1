@@ -35,3 +35,6 @@ COPY fixedDefaultManifestsAndroid7.xml /root/
 COPY fixedLibcedarcConfig.mk /root/
 
 COPY Jenkinsfile /root/
+
+RUN git config --global user.email "docker_build@inx-systems.com" && \
+    git config --global user.name "INX Limited"
