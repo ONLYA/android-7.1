@@ -34,6 +34,12 @@ COPY fixedDefaultManifestsAndroid7.xml /root/
 
 COPY fixedLibcedarcConfig.mk /root/
 
+COPY fixGitConfigAndroid7OpengapsSourceArm64 /root/
+
+COPY fixGitConfigAndroid7OpengapsSourceArm /root/
+
+COPY fixGitConfigAndroid7OpengapsSourceAll /root/
+
 COPY Jenkinsfile /root/
 
 RUN git config --global user.email "docker_build@inx-systems.com" && \
