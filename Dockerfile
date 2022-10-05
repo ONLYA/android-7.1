@@ -3,7 +3,7 @@ FROM ubuntu:18.04
 RUN apt-get update -y && apt-get install -y --no-install-recommends apt-utils
 
 RUN apt-get update -y && \
-    apt-get install -y openjdk-8-jdk software-properties-common git-core gnupg flex bison gperf build-essential \
+    apt-get install -y openjdk-8-jdk python software-properties-common git-core gnupg flex bison gperf build-essential \
     zip curl zlib1g-dev gcc-multilib g++-multilib libc6-dev-i386 \
     lib32ncurses5-dev x11proto-core-dev libx11-dev lib32z-dev ccache \
     libgl1-mesa-dev libxml2-utils xsltproc unzip mtools u-boot-tools \
@@ -12,8 +12,6 @@ RUN apt-get update -y && \
 
 RUN add-apt-repository universe -y && apt-get update -y && \
     apt-get install -y python3.8
-
-RUN ln -s /usr/bin/python3.8 /usr/local/bin/python
 
 RUN curl https://storage.googleapis.com/git-repo-downloads/repo > /usr/local/bin/repo && \
     chmod +x /usr/local/bin/repo
