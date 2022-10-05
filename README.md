@@ -6,7 +6,8 @@ Build with
 
 ```
 docker build https://github.com/ONLYA/android-7.1.git -t android-7.1
-docker run -it -v `pwd`:/host-source android-7.1 bash
+mkdir <PATH to the intended AOSP folder on host>
+docker run --rm -it -v <PATH to the intended AOSP folder on host>:/android-7.1 android-7.1 bash
 ```
 
 When it is inside the container bash, run:

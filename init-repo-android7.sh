@@ -12,4 +12,4 @@ cp ~/fixGitConfigAndroid7OpengapsSourceArm64 ./vendor/opengapps/sources/arm64/.g
 python3.8 $(which repo) forall -r '.*opengapps.*' -c 'git lfs fetch && git lfs checkout'
 cp ~/fixedLibcedarcConfig.mk ./frameworks/av/media/libcedarc/config.mk
 
-sed -i '/$(call inherit-product, vendor\/opengapps\/build\/opengapps-packages.mk)/d' ~/device/softwinner/tulip-chiphd/tulip_chiphd.mk
+sed -i '/$(call inherit-product, vendor\/opengapps\/build\/opengapps-packages.mk)/d' /android-7.1/device/softwinner/tulip-chiphd/tulip_chiphd.mk
