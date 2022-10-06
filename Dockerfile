@@ -1,17 +1,19 @@
 FROM ubuntu:18.04
 
-RUN apt-get update -y && apt-get install -y --no-install-recommends apt-utils
+RUN DEBIAN_FRONTEND=noninteractive apt-get update -y && \
+    DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends apt-utils
 
-RUN apt-get update -y && \
-    apt-get install -y openjdk-8-jdk python software-properties-common git-core gnupg flex bison gperf build-essential \
+RUN DEBIAN_FRONTEND=noninteractive apt-get update -y && \
+    DEBIAN_FRONTEND=noninteractive apt-get install -y openjdk-8-jdk python software-properties-common git-core gnupg flex bison gperf build-essential \
     zip curl zlib1g-dev gcc-multilib g++-multilib libc6-dev-i386 \
     lib32ncurses5-dev x11proto-core-dev libx11-dev lib32z-dev ccache \
     libgl1-mesa-dev libxml2-utils xsltproc unzip mtools u-boot-tools \
     htop iotop sysstat iftop pigz bc device-tree-compiler lunzip \
     dosfstools
 
-RUN add-apt-repository universe -y && apt-get update -y && \
-    apt-get install -y python3.8
+RUN add-apt-repository universe -y && \
+    DEBIAN_FRONTEND=noninteractive apt-get update -y && \
+    DEBIAN_FRONTEND=noninteractive apt-get install -y python3.8
 
 RUN curl https://storage.googleapis.com/git-repo-downloads/repo > /usr/local/bin/repo && \
     chmod +x /usr/local/bin/repo
@@ -49,5 +51,4 @@ RUN build_deps="curl" && \
     curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | bash && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends git-lfs && \
     git lfs install && \
-    DEBIAN_FRONTEND=noninteractive apt-get purge -y --auto-remove ${build_deps} && \
     rm -r /var/lib/apt/lists/*
