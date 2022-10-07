@@ -2,7 +2,7 @@
 
 set -xe
 
-
+export USER=$(whoami)
 export TARGET='tulip_chiphd-userdebug'
 export USE_CCACHE='true'
 export ANDROID_JACK_VM_ARGS='-Xmx3g -Dfile.encoding=UTF-8 -XX:+TieredCompilation'
@@ -26,7 +26,6 @@ if [ -f $IMG_FILE ]; then
         mv $IMG_FILE ..
 fi
 
-set -xe
 
 sdcard_image $IMG_FILE "sopine"
 

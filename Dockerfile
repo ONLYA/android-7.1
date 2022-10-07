@@ -9,7 +9,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update -y && \
     lib32ncurses5-dev x11proto-core-dev libx11-dev lib32z-dev ccache \
     libgl1-mesa-dev libxml2-utils xsltproc unzip mtools u-boot-tools \
     htop iotop sysstat iftop pigz bc device-tree-compiler lunzip \
-    dosfstools
+    dosfstools rsync
 
 RUN add-apt-repository universe -y && \
     DEBIAN_FRONTEND=noninteractive apt-get update -y && \
@@ -51,4 +51,5 @@ RUN build_deps="curl" && \
     curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | bash && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends git-lfs && \
     git lfs install && \
-    rm -r /var/lib/apt/lists/*
+    rm -r /var/lib/apt/lists/* && \
+    sed -i 's/TLSv1, TLSv1.1, //g' /etc/java-8-openjdk/security/java.security
