@@ -13,6 +13,7 @@ docker run --rm -it -v <PATH to the intended AOSP folder on host>:/android-7.1:r
 When it is inside the container bash, run:
 
 ```
+cd /android-7.1
 ~/init-repo-android7.sh
 ~/build.sh
 ```
