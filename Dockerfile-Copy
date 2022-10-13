@@ -18,11 +18,11 @@ RUN DEBIAN_FRONTEND=noninteractive apt update && \
 	curl -L https://www.openssl.org/source/openssl-1.1.1q.tar.gz | (cd /usr/src; tar xz)
 RUN cd /usr/src/openssl-1.1.1q && ./config --prefix=/usr/local && make -j4 && make install && \
 	curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
-RUN echo >> ~/.bashrc && \
-	echo 'export PATH="/root/.pyenv/bin:$PATH"' >> ~/.bashrc && \
-	echo 'eval "$(pyenv init -)"' >> ~/.bashrc && \
-	echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.bashrc && \
-	source ~/.bashrc && \
+RUN echo >> /root/.bashrc && \
+	echo 'export PATH="/root/.pyenv/bin:$PATH"' >> /root/.bashrc && \
+	echo 'eval "$(pyenv init -)"' >> /root/.bashrc && \
+	echo 'eval "$(pyenv virtualenv-init -)"' >> /root/.bashrc && \
+	source /root/.bashrc && \
 	CONFIGURE_OPTS="--with-openssl=/usr/local --with-openssl-rpath=auto" pyenv install 3.10.5 && \
 	pyenv global 3.10.5
 
