@@ -16,4 +16,5 @@ sed -i '/$(call inherit-product, vendor\/opengapps\/build\/opengapps-packages.mk
 pushd $(pwd)/vendor/ayufan-pine64/boot-tools/
 sed -i "/sdc1_used/c\sdc1_used = 0" blobs/sys_config_pine64-sopine.fex
 make clean && make
+rm -Rf linux
 popd
