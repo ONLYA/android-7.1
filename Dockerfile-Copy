@@ -29,7 +29,8 @@ RUN DEBIAN_FRONTEND=noninteractive apt update && \
 	CONFIGURE_OPTS="--with-openssl=/usr/local --with-openssl-rpath=auto" pyenv install 3.10.5 && \
 	pyenv global 3.10.5
 
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y {g++,gcc}-4.9-aarch64-linux-gnu {g++,gcc}-4.7-arm-linux-gnueabihf
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y {g++,gcc}-4.9-aarch64-linux-gnu {g++,gcc}-aarch64-linux-gnu \
+	{g++,gcc}-4.7-arm-linux-gnueabihf dos2unix {g++,gcc}-4.7-arm-linux-gnueabi {g++,gcc}-arm-linux-gnueabi
 
 RUN curl https://storage.googleapis.com/git-repo-downloads/repo > /usr/local/bin/repo && \
     chmod +x /usr/local/bin/repo
