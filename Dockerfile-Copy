@@ -1,6 +1,9 @@
 FROM ubuntu:16.04
 
 SHELL ["/bin/bash", "-c"]
+ENV HOME=/root
+ENV PATH="${HOME}/.pyenv:${PATH}"
+ENV PYENV_ROOT="${HOME}/.pyenv"
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get update -y && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends apt-utils
