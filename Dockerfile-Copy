@@ -12,7 +12,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update -y && \
     dosfstools rsync
 
 RUN DEBIAN_FRONTEND=noninteractive apt update && \
-	DEBIAN_FRONTEND=noninteractive apt install -y build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libsqlite3-dev libreadline-dev libffi-dev curl libbz2-dev liblzma-dev git \
+	DEBIAN_FRONTEND=noninteractive apt install -y build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libsqlite3-dev libreadline-dev libffi-dev curl libbz2-dev liblzma-dev git && \
 	curl -L https://www.openssl.org/source/openssl-1.1.1q.tar.gz | (cd /usr/src; tar xz)
 RUN cd /usr/src/openssl-1.1.1q && ./config --prefix=/usr/local && make -j4 && make install && \
 	curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
